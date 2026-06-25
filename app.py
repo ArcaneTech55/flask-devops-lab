@@ -24,7 +24,15 @@ def home():
         '<p>Version: {{ ver }}</p>'
         '<p><a href="/api/health">/api/health</a></p>'
     )
-    return render_template_string(html, name=cfg['app_name'], ver=cfg['version'])
+    return render_template_string(
+        html,
+        name=cfg['app_name'],
+        ver=cfg['version']
+    )
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)), debug=True)
+    app.run(
+        host='0.0.0.0',
+        port=int(os.environ.get('PORT', 8080)),
+        debug=True
+    )
